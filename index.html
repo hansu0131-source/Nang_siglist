@@ -56,6 +56,12 @@
         color: #d88;
         padding: 0 8px;
     }
+    .new-badge {
+    color: #ff3b3b;
+    font-weight: bold;
+    margin-left: 6px;
+    font-size: 13px;
+}
 </style>
 </head>
 <body>
@@ -453,11 +459,13 @@ function render(rows) {
     `<tr>
        <td>${no}</td>
        <td class="sig-name">
-         │ ${escapeHtml(name)}${isNew ? ' <span class="new-badge">NEW</span>' : ''}
+         │ ${escapeHtml(name)}
+         ${isNew ? '<span class="new-badge">NEW</span>' : ''}
        </td>
      </tr>`
   )).join("");
 }
+
 
 function escapeHtml(str) {
   return String(str)
