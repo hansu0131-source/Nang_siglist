@@ -160,7 +160,7 @@
 {"no":477,"name":"사기캐"},
 {"no":488,"name":"칭칭언니 귀여워"},
 {"no":490,"name":"슈퍼티모"},
-{"no":501,"name":"호미들"}
+{"no":501,"name":"호미들"},
 {"no":505,"name":"호영레이블"},
 {"no":506,"name":"Beggin"},
 {"no":508,"name":"퐁퐁구"},
@@ -279,7 +279,7 @@
 {"no":1094,"name":"종로왕김두한"},
 {"no":1095,"name":"시간을구독중"},
 {"no":1097,"name":"코인러형규"},
-{"no":1099,"name":"람보르기니"}
+{"no":1099,"name":"람보르기니"},
 {"no":1100,"name":"은유화1"},
 {"no":1101,"name":"슈가"},
 {"no":1102,"name":"강남일개미"},
@@ -385,7 +385,7 @@
 {"no":1828,"name":"카블라"},
 {"no":1888,"name":"작은예멘"},
 {"no":1997,"name":"프지니"},
-{"no":1999,"name":"조로"}
+{"no":1999,"name":"조로"},
 {"no":2000,"name":"우끼긴하네"},
 {"no":2009,"name":"약속해"},
 {"no":2010,"name":"By.t"},
@@ -449,10 +449,12 @@ let current = [...SIGS];
 
 // 렌더링 (기존 스타일 유지, 이름 앞에 │ 세로선 표시)
 function render(rows) {
-  tbody.innerHTML = rows.map(({no, name}) => (
+  tbody.innerHTML = rows.map(({no, name, new: isNew}) => (
     `<tr>
        <td>${no}</td>
-       <td class="sig-name">│ ${escapeHtml(name)}</td>
+       <td class="sig-name">
+         │ ${escapeHtml(name)}${isNew ? ' <span class="new-badge">NEW</span>' : ''}
+       </td>
      </tr>`
   )).join("");
 }
