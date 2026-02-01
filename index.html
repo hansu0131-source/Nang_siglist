@@ -50,13 +50,21 @@
   .sig-name {
     font-weight: bold;
   }
-  .new-badge,
-  .season-badge {
+
+  /* 배지 */
+  .new-badge {
     color: #ff3b3b;
     font-weight: bold;
     margin-left: 6px;
     font-size: 13px;
   }
+  .re-badge {
+    color: #1aa34a; /* 초록 */
+    font-weight: bold;
+    margin-left: 6px;
+    font-size: 13px;
+  }
+
   .empty {
     color: #777;
     padding: 18px;
@@ -66,10 +74,10 @@
 
 <body>
 <div class="container">
-  <img src="IMG_5183.jpeg" alt="배너" style="display:block;margin:20px auto;width:70%;">
+  <img src="IMG_5183.jpeg" alt="배너 이미지" style="display:block;margin:20px auto;width:70%;height:auto;">
   <input id="search" placeholder="시그 검색..." type="text"/>
 
-  <table>
+  <table id="sigTable">
     <thead>
       <tr>
         <th id="thNo">번호 ▲</th>
@@ -83,6 +91,7 @@
 <script type="application/json" id="data">
 [
   {"no":112,"name":"진압해"},
+  {"no":117,"name":"두번째지구","NEW":true},
   {"no":118,"name":"치킨바나나"},
   {"no":121,"name":"테·스"},
   {"no":122,"name":"첫눈"},
@@ -92,12 +101,14 @@
   {"no":126,"name":"카리나닮았대"},
   {"no":128,"name":"버블"},
   {"no":129,"name":"candy theif"},
+  {"no":131,"name":"싸이코","NEW":true},
   {"no":132,"name":"쓸애기"},
   {"no":133,"name":"마그네틱"},
   {"no":134,"name":"body"},
   {"no":135,"name":"무아"},
   {"no":139,"name":"쌔끈빠끈"},
   {"no":141,"name":"빛을따라서"},
+  {"no":144,"name":"블러드라인","NEW":true},
   {"no":145,"name":"힙합보단사랑"},
   {"no":149,"name":"오버드라이브"},
   {"no":150,"name":"바빠"},
@@ -107,10 +118,13 @@
   {"no":154,"name":"샤넬챌린지"},
   {"no":157,"name":"키딩"},
   {"no":158,"name":"찔려"},
+  {"no":162,"name":"DUET","NEW":true},
   {"no":165,"name":"It's Sexy"},
   {"no":166,"name":"모시모시"},
   {"no":167,"name":"여름이었다"},
   {"no":171,"name":"BDZ"},
+  {"no":177,"name":"매끈매끈","NEW":true},
+  {"no":180,"name":"너만아니면돼","NEW":true},
   {"no":181,"name":"뻐킹뱅어"},
   {"no":182,"name":"WTF"},
   {"no":183,"name":"씨봐레츠코"},
@@ -125,6 +139,7 @@
   {"no":203,"name":"I want you"},
   {"no":205,"name":"붐샤카라카"},
   {"no":206,"name":"하얀그리움"},
+  {"no":207,"name":"듣고있니","NEW":true},
   {"no":218,"name":"위플래시"},
   {"no":219,"name":"몸"},
   {"no":220,"name":"bass down low"},
@@ -139,10 +154,12 @@
   {"no":234,"name":"섹시푸드"},
   {"no":237,"name":"고민중독"},
   {"no":242,"name":"우유"},
+  {"no":243,"name":"부아앙","NEW":true},
   {"no":244,"name":"여우"},
   {"no":247,"name":"착하다는말이 제일 싫어"},
   {"no":248,"name":"나랑사귈래"},
   {"no":252,"name":"라라리라라"},
+  {"no":254,"name":"스파게티","NEW":true},
   {"no":255,"name":"사랑받을준비완료"},
   {"no":258,"name":"오빠바이러스"},
   {"no":264,"name":"아헤가오"},
@@ -165,6 +182,8 @@
   {"no":324,"name":"너와의모든지금"},
   {"no":332,"name":"원더랜드"},
   {"no":333,"name":"바니바니"},
+  {"no":334,"name":"마빡이"},
+  {"no":335,"name":"앙카","NEW":true},
   {"no":345,"name":"LSD"},
   {"no":352,"name":"바우치"},
   {"no":363,"name":"뛰어"},
@@ -192,7 +211,7 @@
   {"no":544,"name":"NaNaNa"},
   {"no":555,"name":"Fast Cars"},
   {"no":557,"name":"초초신호탄"},
-  {"no":570,"name":"설희신호탄"},
+  {"no":570,"name":"설희 신호탄"},
   {"no":572,"name":"파밍단신호탄"},
   {"no":573,"name":"온리세라"},
   {"no":574,"name":"해아신호탄"},
@@ -215,6 +234,7 @@
   {"no":789,"name":"꾸리형"},
   {"no":797,"name":"신세계"},
   {"no":800,"name":"빵훈신호탄"},
+  {"no":827,"name":"Where you at","NEW":true},
   {"no":888,"name":"피리"},
   {"no":982,"name":"굿바이"},
   {"no":999,"name":"개쳐발렷쥬"},
@@ -224,14 +244,13 @@
   {"no":1003,"name":"쥬"},
   {"no":1004,"name":"퀸어셈블"},
   {"no":1005,"name":"Not like us"},
-  {"no":1006,"name":"첩"},
+  {"no":1006,"name":"첩","Re":true},
   {"no":1007,"name":"시그"},
   {"no":1008,"name":"우산"},
   {"no":1009,"name":"씨나인"},
-  {"no":1010,"name":"커멘더H"},
   {"no":1011,"name":"BIG LOVE"},
   {"no":1012,"name":"만로디"},
-  {"no":1013,"name":"코인은길대장","new":true},
+  {"no":1013,"name":"코인은길대장"},
   {"no":1014,"name":"감나무"},
   {"no":1015,"name":"Tyler_"},
   {"no":1016,"name":"레이커스"},
@@ -260,13 +279,12 @@
   {"no":1041,"name":"라네트"},
   {"no":1043,"name":"GAS"},
   {"no":1044,"name":"애기뽀스"},
-  {"no":1045,"name":"무공해"},
+  {"no":1045,"name":"참치마요","NEW":true},
   {"no":1046,"name":"잘해"},
-  {"no":1047,"name":"광우철구혜루"},
+  {"no":1047,"name":"넋철","NEW":true},
   {"no":1048,"name":"포람페"},
   {"no":1049,"name":"밍세구"},
   {"no":1050,"name":"창귀"},
-  {"no":1051,"name":"로즈"},
   {"no":1052,"name":"도링"},
   {"no":1053,"name":"한량"},
   {"no":1054,"name":"방송볼거없Na"},
@@ -294,7 +312,7 @@
   {"no":1081,"name":"키다리아저씨"},
   {"no":1083,"name":"코비커리"},
   {"no":1084,"name":"배틀탄마린"},
-  {"no":1085,"name":"아기푸멘"},
+  {"no":1085,"name":"김배터","NEW":true},
   {"no":1086,"name":"Clover"},
   {"no":1087,"name":"플진남"},
   {"no":1088,"name":"v8멜로디"},
@@ -354,10 +372,12 @@
   {"no":1177,"name":"초초신호탄"},
   {"no":1178,"name":"철박이"},
   {"no":1179,"name":"아기뭉멘"},
+  {"no":1180,"name":"현현"},
   {"no":1181,"name":"페라리v12"},
-  {"no":1182,"name":"Terry","new":true},
+  {"no":1182,"name":"Terry"},
+  {"no":1184,"name":"차렷열중셔","NEW":true},
+  {"no":1185,"name":"아기푸멘"},
   {"no":1186,"name":"네유"},
-  {"no":1187,"name":"현현"},
   {"no":1188,"name":"C9임"},
   {"no":1189,"name":"좀비"},
   {"no":1190,"name":"00년생"},
@@ -372,6 +392,7 @@
   {"no":1212,"name":"Lacrimosa"},
   {"no":1222,"name":"마티니"},
   {"no":1223,"name":"족구졸려"},
+  {"no":1225,"name":"크리스마스"},
   {"no":1228,"name":"카리"},
   {"no":1234,"name":"퀸즈"},
   {"no":1244,"name":"낭니신호탄"},
@@ -384,12 +405,14 @@
   {"no":1254,"name":"탱베이비"},
   {"no":1255,"name":"북동2"},
   {"no":1256,"name":"수라"},
+  {"no":1257,"name":"썸머G"},
   {"no":1258,"name":"허군"},
   {"no":1259,"name":"북동"},
   {"no":1262,"name":"안드루"},
   {"no":1272,"name":"채플단어셈블"},
   {"no":1276,"name":"석ddd"},
   {"no":1280,"name":"희셈블"},
+  {"no":1284,"name":"woorinangni"},
   {"no":1290,"name":"바비걸"},
   {"no":1303,"name":"영삼"},
   {"no":1308,"name":"쫄병"},
@@ -397,18 +420,22 @@
   {"no":1340,"name":"슬하신호탄"},
   {"no":1351,"name":"다즈리2"},
   {"no":1355,"name":"포에버아로케"},
-  {"no":1357,"name":"썸머G"},
+  {"no":1357,"name":"뉴썸머G","NEW":true},
   {"no":1365,"name":"체온신호탄"},
+  {"no":1440,"name":"무공해"},
   {"no":1445,"name":"세멘"},
   {"no":1472,"name":"씩씩이"},
+  {"no":1476,"name":"광우철구혜루"},
   {"no":1500,"name":"짭예비형"},
   {"no":1515,"name":"짭승환형"},
+  {"no":1520,"name":"로즈"},
   {"no":1521,"name":"오승환이다"},
   {"no":1551,"name":"초코핑"},
   {"no":1558,"name":"작은꼴망"},
   {"no":1585,"name":"꼴망꼴망"},
   {"no":1587,"name":"싸대기때리자"},
   {"no":1589,"name":"빅더끼"},
+  {"no":1650,"name":"기다릴게천맨","NEW":true},
   {"no":1676,"name":"피카츄69"},
   {"no":1696,"name":"골타69"},
   {"no":1727,"name":"까멘"},
@@ -427,6 +454,7 @@
   {"no":2030,"name":"킹황태자"},
   {"no":2035,"name":"캡틴썸머G"},
   {"no":2042,"name":"큰라네트"},
+  {"no":2046,"name":"큰잘해","NEW":true},
   {"no":2052,"name":"큰도링"},
   {"no":2054,"name":"큰없네"},
   {"no":2057,"name":"뭉멘"},
@@ -442,7 +470,7 @@
   {"no":2200,"name":"티머니"},
   {"no":2230,"name":"큰나돌이"},
   {"no":2444,"name":"큰세맨"},
-  {"no":2520,"name":"큰로즈","new":true},
+  {"no":2520,"name":"큰로즈"},
   {"no":2587,"name":"큰싸대기때리자"},
   {"no":2626,"name":"큰안드루"},
   {"no":2676,"name":"큰피카츄69"},
@@ -450,6 +478,7 @@
   {"no":2727,"name":"빅까멘"},
   {"no":2747,"name":"빅포경남"},
   {"no":2828,"name":"큰카블라"},
+  {"no":2842,"name":"큰#woorinangni","NEW":true},
   {"no":2888,"name":"시아나"},
   {"no":2911,"name":"큰라페스타"},
   {"no":2927,"name":"슈퍼까멘"},
@@ -460,7 +489,7 @@
   {"no":2999,"name":"큰예맨"},
   {"no":3022,"name":"밍플단총집합"},
   {"no":3052,"name":"십만로디"},
-  {"no":3066,"name":"십만루루","new":true},
+  {"no":3067,"name":"십만루루"},
   {"no":3069,"name":"69어셈블"},
   {"no":3444,"name":"슈퍼세비지"},
   {"no":3858,"name":"Always vvely km"},
@@ -476,6 +505,7 @@
 const input = document.getElementById("search");
 const tbody = document.getElementById("tbody");
 const thNo = document.getElementById("thNo");
+
 const SIGS = JSON.parse(document.getElementById("data").textContent);
 
 let ascending = true;
@@ -490,9 +520,8 @@ function escapeHtml(str) {
     .replace(/'/g,'&#39;');
 }
 
-function sortAndRender() {
-  current.sort((a,b)=>ascending ? a.no-b.no : b.no-a.no);
-  render(current);
+function sortInPlace(arr) {
+  arr.sort((a,b) => ascending ? (a.no - b.no) : (b.no - a.no));
 }
 
 function render(rows) {
@@ -500,33 +529,52 @@ function render(rows) {
     tbody.innerHTML = `<tr><td colspan="2" class="empty">검색 결과 없음</td></tr>`;
     return;
   }
-  tbody.innerHTML = rows.map(({no,name,new:isNew,season})=>`
-    <tr>
-      <td>${no}</td>
-      <td class="sig-name">
-        │ ${escapeHtml(name)}
-        ${isNew ? '<span class="new-badge">NEW</span>' : ''}
-        ${season ? '<span class="season-badge">Season</span>' : ''}
-      </td>
-    </tr>
-  `).join('');
+
+  tbody.innerHTML = rows.map((item) => {
+    const no = item.no;
+    const name = item.name;
+
+    // NEW는 "NEW":true 기준(사용자가 준 데이터 그대로 지원)
+    const isNew = item.NEW === true;
+
+    // Re는 "Re":true 기준 (초록 체크)
+    const isRe = item.Re === true;
+
+    return `
+      <tr>
+        <td>${no}</td>
+        <td class="sig-name">
+          │ ${escapeHtml(name)}
+          ${isNew ? '<span class="new-badge">NEW</span>' : ''}
+          ${isRe ? '<span class="re-badge">✓ Re</span>' : ''}
+        </td>
+      </tr>
+    `;
+  }).join("");
 }
 
-input.addEventListener("keyup",()=>{
+function applySearch() {
   const q = input.value.toLowerCase().trim();
-  current = SIGS.filter(v =>
-    String(v.no).includes(q) || v.name.toLowerCase().includes(q)
+  current = SIGS.filter(({no, name}) =>
+    String(no).includes(q) || String(name).toLowerCase().includes(q)
   );
-  sortAndRender();
-});
+  sortInPlace(current);
+  render(current);
+}
 
-thNo.onclick = ()=>{
+function toggleSort() {
   ascending = !ascending;
   thNo.textContent = ascending ? "번호 ▲" : "번호 ▼";
-  sortAndRender();
-};
+  sortInPlace(current);
+  render(current);
+}
 
-sortAndRender();
+input.addEventListener("keyup", applySearch);
+thNo.addEventListener("click", toggleSort);
+
+sortInPlace(current);
+render(current);
 </script>
+
 </body>
 </html>
